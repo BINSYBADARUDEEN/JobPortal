@@ -1,5 +1,3 @@
-
-import ErrorHandler from "../middleware/error.js";
 import { user } from "../models/userSchema.js";
 
 export const register = async(req,res,next) => {
