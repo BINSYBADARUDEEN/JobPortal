@@ -1,13 +1,17 @@
-import e from "cors";
-import mongoose from "mongoose";
+const mysql = require('mysql2')
+const db = mysql.createConnection({
+    host:'localhost',
+    user:'root',
+    password:'20036803',
+    database:'jobPortal'
+});
+db.connect((error) => {
+    if(error){
+        console.error('Connection to db failed' + error.stack);
+        return;
+    }
+    console.log('Connected to db');
+    
+});
 
-
-export const connection = () => {
-    mongoose.connect(process.env.MONGO_URI,{
-        dbName: "JOBPORTAL"
-    }).then(() =>{
-        console.log("Connected to database")
-    }).catch(err=>{
-        console.log(`Some error occured while connecting to database: ${err}`)
-    })
-}
+module.exports = db;
