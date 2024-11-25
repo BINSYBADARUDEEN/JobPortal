@@ -28,3 +28,17 @@ exports.getAllJobs = (req, res) => {
     res.send(results);
   });
 };
+//to delete a job
+exports.deleteJob = (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM jobs WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) return res.status(500).send(err);
+
+    if (result.affectedRows === 0) {
+      return res.status(404).send({ message: 'Job not found' });
+    }
+
+    res.send({ message: 'Job deleted successfully' });
+  });
+};
