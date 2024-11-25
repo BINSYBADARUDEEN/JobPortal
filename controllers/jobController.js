@@ -20,3 +20,11 @@ exports.updateJob = (req, res) => {
     res.send({ message: 'Job updated successfully' });
   });
 };
+//to get all jobs from db
+exports.getAllJobs = (req, res) => {
+  const sql = 'SELECT * FROM jobs';
+  db.query(sql, (err, results) => {
+    if (err) return res.status(500).send(err);
+    res.send(results);
+  });
+};
