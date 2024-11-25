@@ -9,3 +9,14 @@ exports.createJob = (req, res) => {
     res.status(201).send({ message: 'Job created successfully', jobId: result.insertId });
   });
 };
+
+// Update a job
+exports.updateJob = (req, res) => {
+  const { id } = req.params;
+  const { title, description, company, location, salary } = req.body;
+  const sql = 'UPDATE jobs SET title = ?, description = ?, company = ?, location = ?, salary = ? WHERE id = ?';
+  db.query(sql, [title, description, company, location, salary, id], (err, result) => {
+    if (err) return res.status(500).send(err);
+    res.send({ message: 'Job updated successfully' });
+  });
+};
