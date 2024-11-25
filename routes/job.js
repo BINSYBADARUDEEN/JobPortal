@@ -3,21 +3,18 @@ var router = express.Router();
 var jobController = require('../controllers/jobController');
 
 //api for create job
-router.route('/v1/job/createJob').post(jobController.postJob);
+router.post('/jobs', jobController.createJob);
 
-//api for getting the all jobs posted
-router.route('/v1/job/getAllJob').get(jobController.getAllJob);
+//api for update job
+router.put('/jobs/:id', jobController.updateJob);
 
-//api for getting the job data from his id
-router.route('/v1/job/getJob/:id').get(jobController.getJob);
+//api for getting all jobs
+router.get('/jobs', jobController.getAllJobs);
 
 //api for searching the job data by JobTitle keyword
-router.route('/v1/job/searchJob').get(jobController.searchJob);
-
-//api for updating the data of the job
-router.route('/v1/job/updateJob/:jobId').put(jobController.updateJob);
+router.get('/jobs/search', jobController.searchJob);
 
 //api for deleting the job
-router.route('/v1/job/deleteJob/:jobId').delete(jobController.deleteJob);
+router.delete('/jobs/:id', jobController.deleteJob);
 
 module.exports = router;
