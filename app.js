@@ -1,22 +1,12 @@
-import express from "express";
-import {config} from "dotenv";
-import cors from "cors";
-import cookieParser from "cookie-parser";
-import {connection} from "./database/connection.js"
-
+const express = require('express');
+const jobRoutes = require('./routes/job');
+const db = require('./database/connection');
 const app = express();
-config({path:"./config/config.env"})
 
-app.use(cors({
-    origin: [process.env.FRONTEND_URL],
-    methods: ["GET","POST","PUT","DELETE"],
-    credentials: true,
-}));
-
-app.use(cookieParser());
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use('/api', jobRoutes);
 
-connection();
-
-export default app;
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
