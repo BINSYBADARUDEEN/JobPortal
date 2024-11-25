@@ -42,3 +42,21 @@ exports.deleteJob = (req, res) => {
     res.send({ message: 'Job deleted successfully' });
   });
 };
+//search job with title and location
+exports.searchJob = (req, res) => {
+  const { title, location } = req.query;
+  let sql = 'SELECT * FROM jobs WHERE 1=1';
+  const params = [];
+  if (title) {
+    sql += ' AND title LIKE ?';
+    params.push(`%${title}%`);
+  }
+  if (location) {
+    sql += ' AND location LIKE ?';
+    params.push(`%${location}%`);
+  }
+  db.query(sql, params, (err, results) => {
+    if (err) return res.status(500).send(err);
+    res.send(results);
+  });
+};
