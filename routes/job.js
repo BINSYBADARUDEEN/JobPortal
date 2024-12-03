@@ -17,4 +17,7 @@ router.get('/jobs/search', jobController.searchJob);
 //api for deleting the job
 router.delete('/jobs/:id', jobController.deleteJob);
 
+//api for getting job with id
+router.get('/jobs/:id', jobController.getJobById);
+
 module.exports = router;
