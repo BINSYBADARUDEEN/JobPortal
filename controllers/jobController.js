@@ -60,3 +60,20 @@ exports.searchJob = (req, res) => {
     res.send(results);
   });
 };
+
+// Get job by id
+exports.getJobById = (req, res) => {
+  const { id } = req.params;
+  const sql = 'SELECT * FROM jobs WHERE id = ? ';
+  db.query(sql, [id], (err, results) => {
+    if (err) {
+      console.error('Error fetching job by ID:', err);
+      return res.status(500).send({ message: 'Server error' });
+    }
+    if (results.length === 0) {
+      return res.status(404).send({ message: 'Job not found' });
+    }
+
+    res.send(results[0]);
+  });
+};
