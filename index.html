@@ -12,6 +12,8 @@
 <form id="job-form">
   <input type="hidden" id="job-id" placeholder="Job ID (for update)">
   <input type="text" id="job-title" placeholder="Job Title" required>
+  <input type="text" id="job-company" placeholder="Company" required>
+  <input type="text" id="job-location" placeholder="Location" required>
   <input type="text" id="job-description" placeholder="Job Description" required>
   <input type="number" id="job-salary" placeholder="Salary" required>
   <button type="submit">Submit</button>
@@ -19,6 +21,7 @@
 <h2>Search Jobs</h2>
 <form id="search-form">
   <input type="text" id="search-title" placeholder="Search by Title">
+  <input type="text" id="search-location" placeholder="Search by Location">
   <button type="submit">Search</button>
 </form>
 <h2>Job Listings</h2>
@@ -27,6 +30,8 @@
     <tr>
       <th>ID</th>
       <th>Title</th>
+      <th>Company</th>
+      <th>Location</th>
       <th>Description</th>
       <th>Salary</th>
       <th>Actions</th>
