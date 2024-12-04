@@ -2,7 +2,7 @@ const db = require('../database/connection');
 
 // Create a new job
 exports.createJob = (req, res) => {
-  const { title, description, company, location, salary } = req.body;
+  const { title, description, company, location, salary, email } = req.body;
   const sql = 'INSERT INTO jobs (title, description, company, location, salary, email) VALUES (?, ?, ?, ?, ?, ?)';
   db.query(sql, [title, description, company, location, salary, email], (err, result) => {
     if (err) return res.status(500).send(err);
@@ -13,7 +13,7 @@ exports.createJob = (req, res) => {
 // Update a job
 exports.updateJob = (req, res) => {
   const { id } = req.params;
-  const { title, description, company, location, salary } = req.body;
+  const { title, description, company, location, salary, email } = req.body;
   const sql = 'UPDATE jobs SET title = ?, description = ?, company = ?, location = ?, salary = ?, email = ? WHERE id = ?';
   db.query(sql, [title, description, company, location, salary, email, id], (err, result) => {
     if (err) return res.status(500).send(err);
