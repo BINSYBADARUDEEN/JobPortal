@@ -66,6 +66,32 @@
           });
         });
     }
+  
+  //for creating and updating jobs
+  jobForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const jobId = document.getElementById('job-id').value;
+      const newJob = {
+        title: document.getElementById('job-title').value,
+        description: document.getElementById('job-description').value,
+        company: document.getElementById('job-company').value,
+        location: document.getElementById('job-location').value,
+        salary: document.getElementById('job-salary').value,
+      };
+      const method = jobId ? 'PUT' : 'POST';
+      const url = jobId ? `${apiUrl}/${jobId}` : apiUrl;
+      fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newJob),
+      })
+        .then(response => response.json())
+        .then(data => {
+          alert(`Job ${jobId ? 'updated' : 'created'} successfully!`);
+          jobForm.reset();
+          fetchJobs();
+        });
+    });  
 </script>
 </body>
 </html>
