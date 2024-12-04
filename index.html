@@ -128,6 +128,35 @@
           });
       }
     }
+    // Search Jobs with title and location
+    searchForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const title = document.getElementById('search-title').value;
+      const location = document.getElementById('search-location').value;
+      const queryParams = new URLSearchParams();
+      if (title) queryParams.append('title', title);
+      if (location) queryParams.append('location', location);
+
+      fetch(`${apiUrl}/search?${queryParams.toString()}`)
+        .then(response => response.json())
+        .then(data => {
+          jobTable.innerHTML = '';
+          data.forEach(job => {
+            const row = jobTable.insertRow();
+            row.insertCell(0).textContent = job.title;
+            row.insertCell(1).textContent = job.company;
+            row.insertCell(2).textContent = job.location;
+            row.insertCell(3).textContent = job.salary;
+            row.insertCell(4).textContent = job.description;
+            row.insertCell(5).textContent = job.email;
+            const actionsCell = row.insertCell(6);
+            actionsCell.innerHTML = `
+              <button onclick="editJob(${job.id})">Edit</button>
+              <button onclick="deleteJob(${job.id})">Delete</button>
+            `;
+          });
+        });
+    });
     window.onload = fetchJobs;
   </script>
 </body>
