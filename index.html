@@ -17,6 +17,7 @@
     <input type="text" id="job-company" placeholder="Company" required>
     <input type="text" id="job-location" placeholder="Location" required>
     <input type="text" id="job-description" placeholder="Job Description" required>
+    <input type="text" id="job-email" placeholder="Email" required>
     <input type="number" id="job-salary" placeholder="Salary" required>
     <button type="submit">Submit</button>
   </form>
@@ -35,6 +36,7 @@
         <th>Location</th>
         <th>Salary</th>
         <th>Description</th>
+        <th>Email</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -58,8 +60,8 @@
             row.insertCell(2).textContent = job.location;
             row.insertCell(3).textContent = job.salary;
             row.insertCell(4).textContent = job.description;
-
-            const actionsCell = row.insertCell(5);
+            row.insertCell(5).textContent = job.email;
+            const actionsCell = row.insertCell(6);
             actionsCell.innerHTML = `
               <button onclick="editJob(${job.id})">Edit</button>
               <button onclick="deleteJob(${job.id})">Delete</button>
@@ -77,6 +79,7 @@
         description: document.getElementById('job-description').value,
         company: document.getElementById('job-company').value,
         location: document.getElementById('job-location').value,
+        email: document.getElementById('job-email').value,
         salary: document.getElementById('job-salary').value,
       };
       const method = jobId ? 'PUT' : 'POST';
@@ -109,6 +112,7 @@
           document.getElementById('job-description').value = job.description;
           document.getElementById('job-company').value = job.company;
           document.getElementById('job-location').value = job.location;
+          document.getElementById('job-email').value = job.email;
           document.getElementById('job-salary').value = job.salary;
         })
         .catch(error => console.error('Error fetching job:', error));
