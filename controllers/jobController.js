@@ -3,8 +3,8 @@ const db = require('../database/connection');
 // Create a new job
 exports.createJob = (req, res) => {
   const { title, description, company, location, salary } = req.body;
-  const sql = 'INSERT INTO jobs (title, description, company, location, salary) VALUES (?, ?, ?, ?, ?)';
-  db.query(sql, [title, description, company, location, salary], (err, result) => {
+  const sql = 'INSERT INTO jobs (title, description, company, location, salary, email) VALUES (?, ?, ?, ?, ?, ?)';
+  db.query(sql, [title, description, company, location, salary, email], (err, result) => {
     if (err) return res.status(500).send(err);
     res.status(201).send({ message: 'Job created successfully', jobId: result.insertId });
   });
@@ -14,8 +14,8 @@ exports.createJob = (req, res) => {
 exports.updateJob = (req, res) => {
   const { id } = req.params;
   const { title, description, company, location, salary } = req.body;
-  const sql = 'UPDATE jobs SET title = ?, description = ?, company = ?, location = ?, salary = ? WHERE id = ?';
-  db.query(sql, [title, description, company, location, salary, id], (err, result) => {
+  const sql = 'UPDATE jobs SET title = ?, description = ?, company = ?, location = ?, salary = ?, email = ? WHERE id = ?';
+  db.query(sql, [title, description, company, location, salary, email, id], (err, result) => {
     if (err) return res.status(500).send(err);
     res.send({ message: 'Job updated successfully' });
   });
