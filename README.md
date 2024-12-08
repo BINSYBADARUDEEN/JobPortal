@@ -8,3 +8,6 @@ Here, the employers have no direct interaction with the system, one main point i
 Also jobseekers can register and login to the system and can view the job details. 
 As of time limitation, the website is not providing the option to upload cv or cover letter, instead an email id of the employer is given along with job description.
   so that the user can send their cv to this mail id. 
+using jest for unit testing
+
+
