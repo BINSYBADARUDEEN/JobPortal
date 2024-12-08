@@ -11,3 +11,6 @@ As of time limitation, the website is not providing the option to upload cv or c
 using jest for unit testing
 
 
+live url : http://20.90.162.93/index.html
+
+
