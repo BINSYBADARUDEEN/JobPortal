@@ -30,7 +30,7 @@
       background-color: #f4f4f4;
     }
   </style>
-  <script src="js/app.js"></script>
+  <script src="app.js"></script>
 </head>
 
 <body>
@@ -71,7 +71,8 @@
     const jobForm = document.getElementById('job-form');
     const searchForm = document.getElementById('search-form');
     const jobTable = document.getElementById('jobTable').getElementsByTagName('tbody')[0];
-    const apiUrl = 'http://localhost:3000/api/jobs';
+    // const apiUrl = 'http://localhost:3000/api/jobs';
+    const apiUrl = 'http://20.90.162.93:3000/api/';
     //display jobs in table
     function fetchJobs() {
       fetch(apiUrl)
