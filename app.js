@@ -6,7 +6,7 @@ const cors = require('cors');
 
 app.use(cors({
   //origin: 'http://localhost:5500',
-  origin: 'http://20.90.162.93', 
+  origin: 'https://dns1.uksouth.cloudapp.azure.com', 
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
 }));
 app.use(express.json());
