@@ -40,5 +40,22 @@ describe('Job Controller', () => {
                 expect.any(Function)
             );
         });
+        it('return 500 for a database error', async () => {
+            db.query.mockImplementation((sql, params, callback) => callback(new Error('Database error')));
+
+            const response = await request(app)
+                .post('/jobs')
+                .send({
+                    title: 'Kitchen Potter',
+                    description: '6 months experience mandatory',
+                    company: 'Zam Zam Cafe',
+                    location: 'Kerala',
+                    salary: 80000,
+                    email: 'zamzamcafe@gmail.com',
+                });
+
+            expect(response.status).toBe(500);
+            expect(response.text).toContain('Database error');
+        });
     });
 });
