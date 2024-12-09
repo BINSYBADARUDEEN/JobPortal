@@ -5,8 +5,7 @@ const app = express();
 const cors = require('cors');
 
 app.use(cors({
-  origin: '*',
-  // origin: 'http://20.90.162.93', 
+  origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
 }));
 app.use(express.json());
