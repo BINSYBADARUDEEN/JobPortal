@@ -58,4 +58,25 @@ describe('Job Controller', () => {
             expect(response.text).toContain('Database error');
         });
     });
+    describe('updateJob', () => {
+        it('should update a job successfully', async () => {
+            const mockResult = { affectedRows: 1 };
+            db.query.mockImplementation((sql, params, callback) => callback(null, mockResult));
+
+            const response = await request(app)
+                .put('/jobs/1')
+                .send({
+                    title: 'Senior Developer',
+                    description: 'Lead software projects.',
+                    company: 'TechCorp',
+                    location: 'Remote',
+                    salary: 100000,
+                    email: 'jobs@techcorp.com',
+                });
+
+            expect(response.status).toBe(200);
+            expect(response.body).toEqual({ message: 'Job updated successfully' });
+        });
+
+    });
 });
