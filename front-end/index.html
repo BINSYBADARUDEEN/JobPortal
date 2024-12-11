@@ -30,7 +30,6 @@
       background-color: #f4f4f4;
     }
   </style>
-  <script src="app.js"></script>
 </head>
 
 <body>
@@ -72,8 +71,8 @@
     const searchForm = document.getElementById('search-form');
     const jobTable = document.getElementById('jobTable').getElementsByTagName('tbody')[0];
     // const apiUrl = 'http://localhost:3000/api/jobs';
-    // const apiUrl = 'http://20.90.162.93:3000/api/jobs';
-    const apiUrl = 'https://dns1.uksouth.cloudapp.azure.com/api/jobs';
+    const apiUrl = 'http://20.90.162.93:3000/api/jobs';
+    // const apiUrl = 'https://dns1.uksouth.cloudapp.azure.com/api/jobs';
     //display jobs in table
     function fetchJobs() {
       fetch(apiUrl)
