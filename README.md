@@ -19,12 +19,19 @@ Here, the employers have no direct interaction with the system, and also the sma
 consultancies can charge an amount from the employer.
 Also jobseekers can login to the system and can view the job details. 
 As of time limitation, and simplicity the website is not providing the option to upload cv or cover letter, instead an email id of the employer is given along with job description. So that the user can send their cv to this mail id.
+
   Backend - Node.js is used with CommonJS module
+
   Database - mysql
+
   Frontend - html,javascript and css
+
   Unit testing - using jest
+
   Integration Testing -using postman
+
   Deployed in azure virtual machine, with apache2, certbot used for https
+
 Implemented CRUD operation for Jobs.A login page is added. If an admin user is logged in, he can view,create,update or delete jobs. And if a job seeker is logged in, he can view and search for the jobs with title or location. 
 
 **References**
@@ -84,7 +91,7 @@ Implemented CRUD operation for Jobs.A login page is added. If an admin user is l
 
    28. Installing and Managing Apache2 on Linux https://ubuntu.com/server/docs/web-apache
 
-   29. 
+  
 
 
 
