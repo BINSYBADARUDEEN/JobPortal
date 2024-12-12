@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input,
+        button
+        {
+            margin: 5px;
+            padding: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Job Portal</h1>
+    <h2>Search Jobs</h2>
+    <form id="search-form">
+        <input type="text" id="search-title" placeholder="Search by Title">
+        <input type="text" id="search-location" placeholder="Search by Location">
+        <button type="submit">Search</button>
+    </form>
+    <h2>Job Listings</h2>
+    <h3>If you are interested, please send your resume to the corresponding email address.</h3>
+    <table id="jobTable">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Location</th>
+                <th>Salary</th>
+                <th>Description</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        const searchForm = document.getElementById('search-form');
+        const jobTable = document.getElementById('jobTable').getElementsByTagName('tbody')[0];
+        const apiUrl = 'http://localhost:3000/api/jobs';
+        function fetchJobs() {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    jobTable.innerHTML = '';
+                    data.forEach(job => {
+                        const row = jobTable.insertRow();
+                        row.insertCell(0).textContent = job.title;
+                        row.insertCell(1).textContent = job.company;
+                        row.insertCell(2).textContent = job.location;
+                        row.insertCell(3).textContent = job.salary;
+                        row.insertCell(4).textContent = job.description;
+                        row.insertCell(5).textContent = job.email;
+                    });
+                });
+        }
+    searchForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const title = document.getElementById('search-title').value;
+      const location = document.getElementById('search-location').value;
+      const queryParams = new URLSearchParams();
+      if (title) queryParams.append('title', title);
+      if (location) queryParams.append('location', location);
+      fetch(`${apiUrl}/search?${queryParams.toString()}`)
+        .then(response => response.json())
+        .then(data => {
+          jobTable.innerHTML = '';
+          data.forEach(job => {
+            const row = jobTable.insertRow();
+            row.insertCell(0).textContent = job.title;
+            row.insertCell(1).textContent = job.company;
+            row.insertCell(2).textContent = job.location;
+            row.insertCell(3).textContent = job.salary;
+            row.insertCell(4).textContent = job.description;
+            row.insertCell(5).textContent = job.email;
+          });
+        });
+    });
+    window.onload = fetchJobs;
+  </script>
+</body>
+</html>

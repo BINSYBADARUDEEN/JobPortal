@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var jobController = require('../controllers/jobController');
-
 //api for create job
 router.post('/jobs', jobController.createJob);
 

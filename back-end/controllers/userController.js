@@ -1,46 +1,15 @@
-import { user } from "../models/userSchema.js";
-
-export const register = async(req,res,next) => {
-    try{
-        const {
-            name,
-            email,
-            phone,
-            address,
-            password,
-            role,
-            firstNiche,
-            secndNiche,
-            thirdNiche,
-            coverLetter,
-        } = req.body;
-        if(!name || !email || !phone || !address || !password || !role){
-            return next(new ErrorHandler("All fieldsare required",400));
+const db = require('../database/connection');
+exports.login = (req, res) => {
+    const { username, password } = req.body;
+    const sql = 'SELECT * FROM users WHERE username = ? AND password = ?';
+    db.query(sql, [username, password], (err, results) => {
+        if (results.length === 0) {
+            return res.status(401).send({ message: 'Invalid username or password' });
         }
-        if(role === "Job Seeker" && (!firstNiche || !secondNiche || !thirdNiche)){
-            return next(new ErrorHandler("Please provide your prefered job niche", 400))
-        }
-        const existingUser = await user.findOne({email});
-        if(existingUser){
-            return next(new ErrorHandler("Email is already registered", 400));
-        }
-        const userData = {
-            name,
-            email,
-            phone,
-            address,
-            password,
-            role,
-            niches: {
-                firstNiche,
-                secndNiche,
-                thirdNiche,
-            },
-            coverLetter,
-        };
-
-
-    }catch (error){
-
-    }
-}; 
+        const user = results[0];
+        res.send({
+            message: 'Login successful',
+            user: { id: user.id, username: user.username, role: user.role}
+        });
+    });
+};
