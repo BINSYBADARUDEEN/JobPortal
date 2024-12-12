@@ -16,8 +16,8 @@ By submitting this assignment, I am confirming that:
 ●	I have followed the Generative AI instructions/ scale set out in the Assignment Brief;
 
 ●	I have read the College rules regarding academic integrity in the QAH Part B Section 3, and the Generative AI Guidelines, and understand that penalties will be applied accordingly if work is found not to be my/our own.
-
 ●	I understand that all work submitted may be code-matched report to show any similarities with other work.
+
 ----------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------
 **JOB PORTAL**
