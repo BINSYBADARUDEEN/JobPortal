@@ -24,25 +24,68 @@ As of time limitation, and simplicity the website is not providing the option to
   Frontend - html,javascript and css
   Unit testing - using jest
   Integration Testing -using postman
-  Deployed in azure virtual machine, with apache2 
-
-live url : http://20.90.162.93/index.html  or http://dns1.uksouth.cloudapp.azure.com/JobPortal/front-end/
-
-
+  Deployed in azure virtual machine, with apache2, certbot used for https
+Implemented CRUD operation for Jobs.A login page is added. If an admin user is logged in, he can view,create,update or delete jobs. And if a job seeker is logged in, he can view and search for the jobs with title or location. 
 
 **References**
-  1.https://youtube.com/playlist?list=PLhW3qG5bs-L9P22XSnRe4suiWL4acXG-g&si=B-McK0RCna7c9ABb 
-   https://youtu.be/tdcCpCeF6g4?list=PLuHGmgpyHfRyL233CDEALV1BN6Xwqwb99
-   https://jestjs.io/docs/mock-functions
-   https://devdocs.io/express/
-   https://github.com/chandrakantgtm/job-portal-api
-   https://code.visualstudio.com/docs/nodejs/nodejs-tutorial
-   https://nodejs.org/en/learn/getting-started/introduction-to-nodejs
-   https://ubuntu.com/server/docs/install-and-configure-a-mysql-server
-   https://www.geeksforgeeks.org/how-to-install-sql-workbench-for-mysql-on-windows/
-   https://www.freecodecamp.org/news/how-to-build-an-event-app-with-node-js/
-   https://webdeveasy.medium.com/creating-dynamic-web-applications-with-node-js-express-8545da4117c0
-   
+  1.  Project Planning Nodejs Job Portal Application Nodejs Project | Nodejs Tutorial | Nodejs Course https://youtu.be/tdcCpCeF6g4?list=PLuHGmgpyHfRyL233CDEALV1BN6Xwqwb99
+
+   2. Express https://devdocs.io/express/
+
+   3. job-portal-api https://github.com/chandrakantgtm/job-portal-api
+
+   4. Node.js tutorial in Visual Studio Code https://code.visualstudio.com/docs/nodejs/nodejs-tutorial
+
+   5. Introduction to Node.js https://nodejs.org/en/learn/getting-started/introduction-to-nodejs
+
+   6. Install and configure a MySQL server https://ubuntu.com/server/docs/install-and-configure-a-mysql-server
+
+   7. How to Install SQL Workbench For MySQL on Windows? https://www.geeksforgeeks.org/how-to-install-sql-workbench-for-mysql-on-windows/
+
+   8. How to Build an Application With Node.js https://www.freecodecamp.org/news/how-to-build-an-event-app-with-node-js/
+
+   9. Creating Dynamic Web Applications with Node.js & Express https://webdeveasy.medium.com/creating-dynamic-web-applications-with-node-js-express-8545da4117c0
+
+   10. JavaScript Tutorial https://www.w3schools.com/js/
+
+   11. Postman Beginner Tutorial 1 | What is Postman https://youtube.com/playlist?list=PLhW3qG5bs-L9P22XSnRe4suiWL4acXG-g&si=B-McK0RCna7c9ABb
+
+   12. Mock Functions https://jestjs.io/docs/mock-functions
+
+   13. Postman documentation overview https://learning.postman.com/docs/introduction/overview/
+
+   14. Node.js web application framework https://expressjs.com/
+
+   15. Window: location property https://developer.mozilla.org/en-US/docs/Web/API/Window/location
+
+   16. HTTP request methods https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods 
+
+   17. JSON.stringify() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+
+   18. JSON.parse() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+
+   19. <form>: The Form element https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
+
+   20. Constraint validation https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation
+
+   21. cors https://www.npmjs.com/package/cors
+
+   22. Job Board Platform with Node and Express.js https://www.geeksforgeeks.org/job-board-platform-with-node-and-express-js/
+
+   23. How to Create Your Own Job Board Web App Using React.js, Node.js, SerpApi, and MUI  https://dev.to/jagroop2001/how-to-create-your-own-job-board-web-app-using-reactjs-nodejs-serpapi-and-mui-4be9
+
+   24. node-job-portal https://github.com/Foy5al/node-job-portal
+
+   25. Job Search Portal with MERN Stack https://www.geeksforgeeks.org/job-search-portal-with-mern-stack/
+
+   26. Job-Portal-with-admin-dashboard-using-React-js-and-Node-Js https://github.com/umangkumarchaudhary/Job-Portal-with-admin-dashboard-using-React-js-and-Node-Js
+
+   27. Reverse Proxy Setup in Apache https://httpd.apache.org/docs/2.4/mod/mod_proxy.html
+
+   28. Installing and Managing Apache2 on Linux https://ubuntu.com/server/docs/web-apache
+
+   29. 
+
 
 
 
