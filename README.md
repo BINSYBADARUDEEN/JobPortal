@@ -1,13 +1,22 @@
 **Student  Name and Number as per student card: BINSY BADARUDEEN (20036803)**
+
 **Programme: Master of Science in Information Systems with Computing**
+
 **Lecturer Name: Paul Laird**
+
 **Module/Subject Title: Programming for Information Systems**
+
 Assignment Title: CA 2
+
 By submitting this assignment, I am confirming that:
 ●	This assignment is all my own work;
+
 ●	Any sources used have been referenced;
+
 ●	I have followed the Generative AI instructions/ scale set out in the Assignment Brief;
+
 ●	I have read the College rules regarding academic integrity in the QAH Part B Section 3, and the Generative AI Guidelines, and understand that penalties will be applied accordingly if work is found not to be my/our own.
+
 ●	I understand that all work submitted may be code-matched report to show any similarities with other work.
 ----------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------
